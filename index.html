@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wakanda Forever</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Wakanda&family=Wakanda-abc">
 </head>
 <body>
     <header class="header">
@@ -12,9 +13,9 @@
 
         <nav class="navbar">
             <a href="#main">Home</a>
-            <a href="a">About</a>
-            <a href="a">Movies</a>
-            <a href="a">Legend</a>
+            <a href="#about">About</a>
+            <a href="#movies">Movies</a>
+            <a href="#footer">Legend</a>
         </nav>
     </header>
 
@@ -23,13 +24,13 @@
     <section id="main">
         <div class="left">
             <div class="content">
-                <h1>The GOAT</h1>
+                <h1 class="title">The GOAT</h1>
                 <p>He is the man, the myth, the Legend</p>
             </div>
         </div>
         <div class="right">
             <div class="content">
-                <h1>The Protecter</h1>
+                <h1 class="title">The Protector</h1>
                 <p>Black Panther's greatness lies in its groundbreaking representation, empowering generations through its rich cultural narrative and celebration of black excellence.</p>
             </div>
         </div>
@@ -37,16 +38,94 @@
 
     <section id="about">
         <div class="container">
-            
+            <!-- Gambar gambar disini semua -->
         </div>
-        <div class="container">
-            
-        </div>
-        <div class="container">
-            
+
+        <div class="about-chadwick">
+            <div class="container-chad">
+                <h1 class="about-title">Chadwick Boseman "King T'Challa"</h1>
+                <p>Chadwick Boseman, a celebrated actor born on November 29, 1976, in Anderson, South Carolina, became a global icon known for his powerful performances and profound impact. Rising to prominence with his portrayal of baseball legend Jackie Robinson in the biographical film "42," Boseman's talent and dedication garnered widespread acclaim.
+
+                    Throughout his career, Boseman captivated audiences with his portrayal of influential figures such as James Brown in "Get on Up" and Thurgood Marshall in "Marshall." However, it was his role as King T'Challa in Marvel's "Black Panther" that cemented his status as a cultural icon.
+                    
+                    Beyond his on-screen achievements, Boseman used his platform to advocate for social justice and equality, leaving a lasting legacy of inspiration and empowerment. His untimely passing on August 28, 2020, deeply saddened the world, but his enduring impact as a visionary artist and humanitarian continues to inspire millions worldwide.</p>
+            </div>
         </div>
     </section>
 
+    <section class="movies" id="movies">
+        <div class="container-movie">
+            <h1>Black Panther</h1>
+            <iframe width="580" height="350" src="https://www.youtube.com/embed/xjDjIWPwcPU" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="container-movie">
+            <h1>Captain America: Civil War</h1>
+            <iframe width="580" height="350" src="https://www.youtube.com/embed/dKrVegVI0Us" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="container-movie">
+            <h1>Avengers: Infinity War</h1>
+            <iframe width="580" height="350" src="https://www.youtube.com/embed/6ZfuNTqbHE8" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="container-movie">
+            <h1>Avengers: Endgame</h1>
+            <iframe width="580" height="350" src="https://www.youtube.com/embed/TcMBFSGVi1c" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>&copy; 2024 Wakanda Forever. All rights reserved.</p>
+                    <p style="margin-top: 20px;"> Made by: Leonathan "Achira" </p>
+                </div>
+                <div class="sponsors">
+                    <p>Sponsored by:</p>
+                    <ul>
+                        <li>Stark Industries</li>
+                        <li>Wayne Enterprises</li>
+                        <li>Oscorp</li>
+                    </ul>
+                </div>
+                <div class="legend">
+                    <h1>Rest In Peace Legend</h1>
+                    <img src="images/wakanda-forever.png" alt="Wakanda Forever">
+                </div>
+            </div>
+        </div>
+    </footer>
+    
 
+    <script>
+        const images = ['images/1.jpeg', 'images/2.jpg', 'images/3.jpg', 'images/4.jpg', 'images/5.jpg', 'images/6.jpg'];
+        let currentIndex = 0;
+        const container = document.querySelector('#about .container');
+        const titleElements = document.querySelectorAll('.about-title');
+        const navbarLinks = document.querySelectorAll('.navbar a');
+        let fontToggle = false;
+
+        setInterval(() => {
+            // Change font family
+            titleElements.forEach(title => {
+                if (fontToggle) {
+                    title.style.fontFamily = 'Wakanda';
+                } else {
+                    title.style.fontFamily = 'Wakanda-abc';
+                }
+            });
+            navbarLinks.forEach(link => {
+                if (fontToggle) {
+                    link.style.fontFamily = 'Wakanda';
+                } else {
+                    link.style.fontFamily = 'Wakanda-abc';
+                }
+            });
+            fontToggle = !fontToggle;
+
+            // Change image
+            currentIndex = (currentIndex + 1) % images.length;
+            container.innerHTML = `<img src="${images[currentIndex]}" alt="image ${currentIndex + 1}" class="about-image">`;
+        }, 5000);
+    </script>
 </body>
 </html>
